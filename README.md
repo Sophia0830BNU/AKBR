@@ -10,7 +10,7 @@
 ## Quick Start
 
 ```python
-python main.py
+python main3.py
 ```
 
 ## Datasets
