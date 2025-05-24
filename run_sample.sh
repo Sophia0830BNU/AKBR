@@ -9,5 +9,6 @@ nohup python3 -u main_sample.py \
   --epochs 500 \
   --feature_hid 36 \
   --iteration_num 2 \
+  --sample_number 200 \
   --attn_type $attn_type \
   >> "$log_file" &
