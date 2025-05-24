@@ -1,57 +1,3 @@
-# import torch
-# from torch_geometric.datasets import TUDataset
-# from torch_geometric.utils.convert import to_networkx
-# import networkx as nx
-# import numpy as np
-
-
-
-# def get_feature(dataset):
-#     Gs = []
-#     min_sp = 100000
-#     max_sp = 0
-#     graph_num = len(dataset)
-#     for i in range(graph_num):
-#         G = nx.floyd_warshall_numpy(to_networkx(dataset[i]))
-#         G = np.where(G == np.inf, 0, G)
-#         G = np.where(G == np.nan, 0, G)
-#         if np.max(G) > max_sp:
-#             max_sp = np.max(G)
-#         elif np.min(G) < min_sp:
-#             min_sp = np.min(G)
-#         np.fill_diagonal(G, -1)
-#         Gs.append(G)
-#     #print(Gs)
-#     feature_len = int(max_sp) +1
-#     # print(min_sp)
-#     # print(max_sp)
-
-#     feature = np.zeros((graph_num, feature_len))
-
-#     for i in range(graph_num):
-#         for j in range(len(Gs[i])):
-#             for k in range(len(Gs[i])):
-#                 path_len = Gs[i][j][k].astype(int)
-#                 if path_len > -1:
-#                     if path_len == 0:
-#                         #print(1111)
-#                         continue
-#                     feature[i][path_len] = feature[i][path_len]+1
-
-#     feature = feature/2
-#     feature = feature[:, [not np.all(feature[:, i] == 0) for i in range(feature.shape[1])]]
-#     return feature
-
-# if __name__ == '__main__':
-#     dataset = TUDataset(root='./data/IMDB-BINARY', name='IMDB-BINARY')
-
-#     phi = get_feature(dataset)
-#     print(phi.shape[1])
-#     #print(np.dot(phi, phi.T))
-#     print(get_feature(dataset))
-#     print(dataset.y)
-
-
 import numpy as np
 import networkx as nx
 from torch_geometric.datasets import TUDataset
@@ -131,6 +77,11 @@ def get_feature(dataset, node_label=True):
     feature = feature.reshape(graph_num, -1)
     feature = feature[:, [not np.all(feature[:, i] == 0) for i in range(feature.shape[1])]]
     
+<<<<<<< HEAD
+=======
+    
+    
+>>>>>>> d395b0d (Initial clean code commit)
     return feature
 
 if __name__ == '__main__':
